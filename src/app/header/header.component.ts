@@ -11,6 +11,9 @@ export class HeaderComponent {
     @ViewChild('shoppingRef', { static: false }) shoppingLink: ElementRef;
 
     @Output() page = new EventEmitter<string>();
+
+    dropdownOpen:boolean = false;
+    
     changePage(newPage: string) {
         this.page.emit(newPage);
         if (newPage === 'recipes') {
