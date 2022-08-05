@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'the-basics-project';
+  currentPage = 'recipes'
+  onPageEmitted(page: string): void {
+    this.currentPage = page
+    console.log(this.currentPage);
+  }
 }

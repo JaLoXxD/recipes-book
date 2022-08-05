@@ -1,1 +1,46 @@
-<p>recipe-detail works!</p>
+<div class="row" *ngIf="currentRecipe.imagePath === ''; else recipeContent">
+  <h2>Please select a recipe in the list :)</h2>
+</div>
+
+<ng-template #recipeContent>
+  <div class="row d-flex">
+    <div class="col-6">
+      <img id="recipeImg" [src]="currentRecipe.imagePath" alt="" />
+    </div>
+    <div class="col-6">
+      <div class="row">
+        <div class="col-xs-12">
+          <h1>Recipe: {{ currentRecipe.name }}</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="dropdown">
+            <button
+              class="btn btn-primary dropdown-toggle"
+              type="button"
+              id="recipeDropdown"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              ManageRecipe
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="recipeDropdown">
+              <li><a href="">To Shopping List</a></li>
+              <li><a href="">Edit Recipe</a></li>
+              <li><a href="">Delete Recipe</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <h2>Description:</h2>
+          <p>{{ currentRecipe.description }}</p>
+          <h2>Ingredients:</h2>
+          <p></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
