@@ -3,21 +3,21 @@ import {
   ElementRef,
   HostBinding,
   HostListener,
-  Input,
-  OnInit,
 } from '@angular/core';
 
 @Directive({
   selector: '[appDropdown]',
 })
-export class dropdownDirective implements OnInit {
+export class dropdownDirective{
   @HostBinding('class.open') class = false;
 
   constructor(private elRef: ElementRef) {}
 
-  ngOnInit(): void {}
-
-  @HostListener('click') clickBtn(eventData: Event) {
-    this.class = !this.class;
+  @HostListener('document:click', ['$event']) clickBtn(eventData: Event) {
+    if (!this.elRef.nativeElement.contains(eventData.target)) {
+      this.class = false;
+    } else {
+      this.class = !this.class;
+    }
   }
 }
