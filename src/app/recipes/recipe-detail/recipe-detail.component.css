@@ -3,3 +3,21 @@
     width: auto;
     object-fit: cover;
 }
+
+.dropdown-menu{
+    right:0;
+}
+
+.dropdown-menu li a{
+    cursor: pointer;
+}
+
+#detailRow{
+    position: relative;
+}
+
+#dropdownRow{
+    position: absolute;
+    right: 0;
+    top: 0;
+}

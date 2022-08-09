@@ -15,20 +15,29 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a
+          <!-- <a
             class="nav-link active"
             href="#"
             (click)="changePage('recipes')"
             #recipesRef
             >Recipes</a
+          > -->
+          <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" routerLink="/recipes"
+            >Recipes</a
           >
         </li>
         <li class="nav-item">
-          <a
+          <!-- <a
             class="nav-link"
             href="#"
             (click)="changePage('shopping')"
             #shoppingRef
+            >Shopping List</a
+          > -->
+          <a
+            class="nav-link"
+            routerLinkActive="active"
+            routerLink="/shopping-list"
             >Shopping List</a
           >
         </li>
@@ -37,13 +46,12 @@
         <li class="nav-item dropdown" appDropdown>
           <a
             class="nav-link dropdown-toggle"
-            href="#"
             id="navbarDropdown"
             role="button"
           >
             Dropdown
           </a>
-          <ul class="dropdown-menu" [ngClass]="{ opened: dropdownOpen }">
+          <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#">Action</a></li>
             <li><a class="dropdown-item" href="#">Another action</a></li>
             <li>
