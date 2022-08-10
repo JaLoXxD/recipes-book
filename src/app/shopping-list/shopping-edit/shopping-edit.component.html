@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-xs-12">
-    <form action="">
+    <form action="" (ngSubmit)="onAddItem(f)" #f="ngForm">
       <div class="row">
         <div class="col-4 mb-3">
           <label for="ingredientName" class="form-label">Name</label>
@@ -9,7 +9,9 @@
             class="form-control"
             id="ingredientName"
             placeholder="Apples"
-            #nameInput
+            name="name"
+            ngModel
+            required
           />
         </div>
         <div class="col-2 mb-3">
@@ -19,14 +21,23 @@
             class="form-control"
             id="ingredientAmount"
             placeholder="5"
-            #amountInput
+            name="amount"
+            ngModel
+            required
+            pattern="^[1-9]+[0-9]*$"
           />
         </div>
       </div>
       <div class="d-flex gap-3">
-        <button class="btn btn-success" type="submit" (click)="addIngredient()">Add</button>
-        <button class="btn btn-danger" type="button">Delete</button>
-        <button class="btn btn-dark" type="button">Clear</button>
+        <button class="btn btn-success" type="submit" [disabled]="!f.valid">
+          {{ editMode ? "Update" : "Add" }}
+        </button>
+        <button class="btn btn-danger" type="button" (click)="onDeleteItem()">
+          Delete
+        </button>
+        <button class="btn btn-dark" type="button" (click)="clearForm()">
+          Clear
+        </button>
       </div>
     </form>
   </div>

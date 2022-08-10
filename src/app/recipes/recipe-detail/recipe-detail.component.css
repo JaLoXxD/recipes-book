@@ -1,6 +1,6 @@
 #recipeImg{
     height: 250px;
-    width: auto;
+    width: 250px;
     object-fit: cover;
 }
 
