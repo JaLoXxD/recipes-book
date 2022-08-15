@@ -1,6 +1,7 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { map, Subject, tap } from 'rxjs';
 import { Ingredient } from 'src/app/shared/ingredient.model';
+import { StorageService } from 'src/app/shared/storage.service';
 import { ShoppingListService } from 'src/app/shopping-list/services/shopping-list.service';
 import { Recipe } from '../recipes.model';
 
@@ -9,7 +10,7 @@ export class RecipesService {
   public refreshRecipes = new Subject<Recipe[]>();
 
   private recipes: Recipe[] = [
-    new Recipe(
+    /*   new Recipe(
       'Fritada',
       'This is a typical ecuadorian food.',
       'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/indian-10f0c14.jpg',
@@ -31,10 +32,12 @@ export class RecipesService {
         new Ingredient('Grapes', 20),
         new Ingredient('Peach', 3),
       ]
-    ),
+    ), */
   ];
 
-  constructor(private _shoppingListService: ShoppingListService) {}
+  constructor(
+    private _shoppingListService: ShoppingListService,
+  ) {}
 
   getRecipes() {
     return this.recipes.slice();
@@ -62,5 +65,10 @@ export class RecipesService {
 
   addIngredientsToList(ingredients: Ingredient[]) {
     this._shoppingListService.ingredientsToList(ingredients);
+  }
+
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
+    this.refreshRecipes.next(this.recipes.slice());
   }
 }
