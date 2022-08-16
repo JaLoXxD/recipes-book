@@ -10,29 +10,29 @@ export class RecipesService {
   public refreshRecipes = new Subject<Recipe[]>();
 
   private recipes: Recipe[] = [
-    /*   new Recipe(
-      'Fritada',
-      'This is a typical ecuadorian food.',
-      'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/indian-10f0c14.jpg',
-      [
-        new Ingredient('Apples', 4),
-        new Ingredient('Carrots', 2),
-        new Ingredient('Corns', 6),
-      ]
-    ),
-    new Recipe(
-      'test2',
-      'test2',
+    // new Recipe(
+    //   'Fritada',
+    //   'This is a typical ecuadorian food.',
+    //   'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/indian-10f0c14.jpg',
+    //   [
+    //     new Ingredient('Apples', 4),
+    //     new Ingredient('Carrots', 2),
+    //     new Ingredient('Corns', 6),
+    //   ]
+    // ),
+    // new Recipe(
+    //   'test2',
+    //   'test2',
 
-      'https://images.immediate.co.uk/production/volatile/sites/30/2022/03/summer-budget-85da682.jpg?quality=90&resize=504%2C458',
-      [
-        new Ingredient('Bananas', 5),
-        new Ingredient('Watermelon', 1),
-        new Ingredient('Pinapple', 3),
-        new Ingredient('Grapes', 20),
-        new Ingredient('Peach', 3),
-      ]
-    ), */
+    //   'https://images.immediate.co.uk/production/volatile/sites/30/2022/03/summer-budget-85da682.jpg?quality=90&resize=504%2C458',
+    //   [
+    //     new Ingredient('Bananas', 5),
+    //     new Ingredient('Watermelon', 1),
+    //     new Ingredient('Pinapple', 3),
+    //     new Ingredient('Grapes', 20),
+    //     new Ingredient('Peach', 3),
+    //   ]
+    // ),
   ];
 
   constructor(
